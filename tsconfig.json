@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "alwaysStrict": true,
+    "declaration": true,
+    "declarationDir": "./dist/package/",
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist/package/",
+    "pretty": true,
+    "sourceMap": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "target": "es5"
+  },
+  "include": [
+    "./src/package/**/*.ts",
+    "./src/package/**/*.tsx"
+  ]
+}

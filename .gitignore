@@ -1,0 +1,7 @@
+# root:
+.idea
+dist
+node_modules
+
+# wildcards:
+!**.gitkeep

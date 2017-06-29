@@ -1,0 +1,62 @@
+{
+  "name": "react.ts-boilerplate",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "A boiler plate for creating a typescript react based npm packages and webpack apps.",
+  "license": "MIT",
+  "author": "Alex Bahnisch",
+  "homepage": "https://github.com/alexbahnisch/react.ts-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexbahnisch/react.ts-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexbahnisch/react.ts-boilerplate/issues"
+  },
+  "main": "./src/package/index.ts",
+  "private": true,
+  "keywords": [
+    "boilerplate",
+    "npm",
+    "react",
+    "typescript",
+    "webpack"
+  ],
+  "devDependencies": {
+    "@types/node": "^6.0.79",
+    "@types/react": "^15.0.33",
+    "@types/react-dom": "^15.5.1",
+    "awesome-typescript-loader": "^3.2.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "http-server": "^0.10.0",
+    "json5": "^0.5.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "typescript": "^2.4.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-livereload-plugin": "^0.11.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^15.0.33",
+    "@types/react-dom": "^15.5.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "scripts": {
+    "app:build": "npm run app:clean && cross-env CONFIG=app webpack --progress -p",
+    "app:build-dev": "npm run app:clean && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
+    "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
+    "app:server": "http-server ./dist/app/ -p 8002",
+    "app:server-dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
+    "clean": "npm run app:clean && npm run package:clean",
+    "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
+    "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
+    "package:bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
+    "package:compile": "npm run package:clean && tsc"
+  }
+}
