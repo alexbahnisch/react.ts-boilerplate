@@ -2,9 +2,9 @@
 
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const LiveReloadPlugin = require('webpack-livereload-plugin');
+const LiveReloadPlugin = require("webpack-livereload-plugin");
 
 
 module.exports = {
