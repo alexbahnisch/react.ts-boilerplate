@@ -1,7 +1,7 @@
 {
   "name": "react.ts-boilerplate",
   "version": "0.0.1-SNAPSHOT",
-  "description": "A boiler plate for creating a typescript react based npm packages and webpack apps.",
+  "description": "A boilerplate for creating typescript/react based npm packages and webpack apps.",
   "license": "MIT",
   "author": "Alex Bahnisch",
   "homepage": "https://github.com/alexbahnisch/react.ts-boilerplate#readme",
