@@ -1,4 +1,5 @@
 "use strict";
+/** @namespace process.env.MIN */
 
 const fs = require("fs");
 const path = require("path");
