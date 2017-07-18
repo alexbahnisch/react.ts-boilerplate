@@ -2,8 +2,6 @@
   "compilerOptions": {
     "allowJs": false,
     "alwaysStrict": true,
-    "declaration": true,
-    "declarationDir": "./dist/package/",
     "experimentalDecorators": true,
     "jsx": "react",
     "module": "commonjs",

@@ -57,6 +57,6 @@
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
-    "package:compile": "npm run package:clean && tsc"
+    "package:compile": "npm run package:clean && tsc -d"
   }
 }
