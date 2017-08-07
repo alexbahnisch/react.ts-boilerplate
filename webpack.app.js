@@ -15,8 +15,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/app/"),
-    port: 8001,
-    publicPath: "/"
+    port: 8001
   },
   resolve: {
     alias: {
