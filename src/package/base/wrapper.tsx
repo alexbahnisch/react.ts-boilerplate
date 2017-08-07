@@ -3,9 +3,9 @@
 import * as React from "react"
 import {Children, PureComponent} from "react"
 
-import {pureAssign} from "../Utils/core"
+import {pureAssign} from "../utils/core"
 
-import "./base.css"
+import "./styles.css"
 
 
 export interface WrapperProps {

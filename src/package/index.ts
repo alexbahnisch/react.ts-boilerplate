@@ -1,11 +1,8 @@
 "use strict";
 
-import {Wrapper} from "./Base/wrapper";
+import {Wrapper} from "./base/wrapper";
+
 
 export {
-  Wrapper
-}
-
-export default {
   Wrapper
 }
