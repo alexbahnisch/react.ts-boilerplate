@@ -44,10 +44,7 @@ function copyPackageJson(sourceDir, destinationDir) {
   }
 }
 
-function prePackage(sourceDir, destinationDir, ...files) {
+(function prePackage(sourceDir, destinationDir, ...files) {
   copyFiles(sourceDir, destinationDir, ...files);
   copyPackageJson(sourceDir, destinationDir)
-}
-
-
-prePackage("../", "../dist/package/", 'LICENSE', 'README.md');
+})("../", "../dist/package/", 'LICENSE', 'README.md');
