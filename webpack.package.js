@@ -1,5 +1,4 @@
 "use strict";
-/** @namespace process.env.MIN */
 
 const fs = require("fs");
 const path = require("path");
@@ -12,7 +11,6 @@ let name = `${packageJson.name}-${packageJson.version}${process.env.MIN ? ".min"
 let plugins = [new ExtractTextPlugin(`${name}.css`)];
 
 if (process.env.MIN) {
-  //noinspection JSUnresolvedFunction
   plugins.push(new webpack.optimize.UglifyJsPlugin())
 } else {
   plugins.push(new ExtractTextPlugin("styles.css"))
