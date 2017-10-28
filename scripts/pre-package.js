@@ -1,5 +1,4 @@
 "use strict";
-
 const fs = require("fs");
 const path = require("path");
 
@@ -28,13 +27,11 @@ function copyPackageJson(sourceDir, destinationDir) {
     let rootPackageJson = JSON.parse(fs.readFileSync(relativePath(sourceDir, "package.json")));
 
     let {
-      name, version, description, author, license, keywords,
-      homepage, repository, bugs, dependencies, peerDependencies
+      name, version, description, author, license, keywords, homepage, repository, bugs, dependencies, peerDependencies
     } = rootPackageJson;
 
     let subPackageJson = {
-      name, version, description, author, license, keywords,
-      homepage, repository, bugs, main: "./index.js", dependencies, peerDependencies
+      name, version, description, author, license, keywords, homepage, repository, bugs, main: "./index.js", dependencies, peerDependencies
     };
 
     fs.writeFileSync(relativePath(destinationDir, "package.json"), JSON.stringify(subPackageJson, null, " "));
