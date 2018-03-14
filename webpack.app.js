@@ -33,7 +33,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist/app/"),
-    port: 8001
+    port: 8082
   },
   resolve: {
     alias: {
