@@ -21,24 +21,26 @@
     "typescript",
     "webpack"
   ],
+  "dependencies": {},
   "devDependencies": {
-    "@types/node": "^9.4.7",
-    "@types/react": "^16.0.40",
+    "@types/node": "^9.6.2",
+    "@types/react": "^16.3.6",
     "@types/react-dom": "^16.0.4",
-    "awesome-typescript-loader": "^4.0.1",
+    "awesome-typescript-loader": "^5.0.0",
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.4",
-    "css-loader": "^0.28.10",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "html-webpack-plugin": "^2.30.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "typescript": "^2.7.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.0",
-    "webpack-livereload-plugin": "^1.0.0"
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "typescript": "^2.8.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3",
+    "webpack-livereload-plugin": "^2.1.1"
   },
   "peerDependencies": {
     "@types/react": "16",
@@ -56,7 +58,7 @@
     "clean": "npm run app:clean && npm run package:clean",
     "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
-    "package:bundle": "cross-env CONFIG=package MIN=true webpack && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
+    "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
     "package:compile": "npm run package:clean && tsc -d"
   }

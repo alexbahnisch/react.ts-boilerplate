@@ -4,6 +4,7 @@ import * as ReactDOM from "react-dom"
 
 import {App} from "./views/app"
 import {createElement} from "./utils/development"
+import "./styles.css"
 
 
 ReactDOM.render(

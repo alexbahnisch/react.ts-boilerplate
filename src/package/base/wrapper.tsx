@@ -1,10 +1,8 @@
 "use strict";
-
 import * as React from "react"
 import {Children, PureComponent} from "react"
 
-import {pureAssign} from "../utils/core"
-
+import {pureAssign} from "../utils"
 import "./styles.css"
 
 

@@ -2,9 +2,7 @@
 import * as React from "react"
 import {Component} from "react"
 
-// TODO replace "../../package" with "package" when IDE can trace webpack config.resolve.alias
 import {Wrapper} from "../../package"
-import "./styles.css"
 
 
 export interface AppProps {

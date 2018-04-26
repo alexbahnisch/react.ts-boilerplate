@@ -26,19 +26,17 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 module.exports = {
-  entry: path.resolve(__dirname, "./src/app/main.tsx"),
+  mode: process.env.NODE_ENV !== "production" ? "production" : "development",
+  entry: path.resolve(__dirname, "../src/app/main.tsx"),
   output: {
-    path: path.resolve(__dirname, "./dist/app/"),
+    path: path.resolve(__dirname, "../dist/app/"),
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist/app/"),
+    contentBase: path.resolve(__dirname, "../dist/app/"),
     port: 8082
   },
   resolve: {
-    alias: {
-      "package": path.resolve(__dirname, "./src/package")
-    },
     extensions: [".js", ".ts", ".tsx"]
   },
   module: {

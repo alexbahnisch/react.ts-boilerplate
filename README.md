@@ -14,13 +14,6 @@ npm install
 
 ##### Local Build
 
-* Production build using http-server (content available at http://localhost:8081):
-    
-    ```
-    npm run app:build
-    npm run app:server
-    ```
-
 * Development build using http-server (content available at http://localhost:8081):
 
     ```
@@ -30,6 +23,13 @@ npm install
     Then in a separate terminal:
     
     ```
+    npm run app:server
+    ```
+
+* Production build using http-server (content available at http://localhost:8081):
+
+    ```
+    npm run app:build
     npm run app:server
     ```
 
