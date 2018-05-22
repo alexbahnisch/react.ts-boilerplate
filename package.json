@@ -32,7 +32,7 @@
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.11.1",
+    "live-server": "^1.2.0",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -51,15 +51,15 @@
   "scripts": {
     "app:build": "npm run app:clean && cross-env CONFIG=app webpack --progress -p",
     "app:build-dev": "npm run app:clean && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
-    "app:build-docker": "cross-env CONFIG=app webpack -p",
+    "app:build-docker": "cross-env CONFIG=app webpack --progress -p",
     "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
-    "app:server": "http-server ./dist/app/ -p 8081",
-    "app:server-dev": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
+    "app:serve": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
     "clean": "npm run app:clean && npm run package:clean",
     "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
     "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
-    "package:compile": "npm run package:clean && tsc -d"
+    "package:compile": "npm run package:clean && tsc -d",
+    "server": "live-server ./dist/app/ --port 8081"
   }
 }

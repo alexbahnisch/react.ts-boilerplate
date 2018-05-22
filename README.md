@@ -4,7 +4,7 @@ A boilerplate for creating typescript/react based npm packages and webpack apps.
 
 ### Getting started
 
-Requires node and npm to be installed, and added to system path.
+Requires node and npm to be installed.
 
 ```
 npm install
@@ -12,48 +12,49 @@ npm install
 
 ## App
 
-##### Local Build
+##### Local Builds
 
-* Development build using http-server (content available at http://localhost:8081):
+* Development build using live-server (content available at [http://localhost:8081](http://localhost:8081)):
 
     ```
     npm run app:build-dev
     ```
     
-    Then in a separate terminal:
+    and in a separate terminal
     
     ```
-    npm run app:server
+    npm run server
     ```
 
-* Production build using http-server (content available at http://localhost:8081):
+* Production build using live-server (content available at [http://localhost:8081](http://localhost:8081)):
 
     ```
     npm run app:build
     npm run app:server
     ```
 
-* Development build using webpack-dev-server (content available at http://localhost:8082):
+* Development build using webpack-dev-server (content available at [http://localhost:8082](http://localhost:8082)):
 
     ```
-    npm run app:server-dev
+    npm run app:serve
     ```
 
 ##### Docker Build
 
-Requires docker.
+Requires docker, docker-compose and make.
 
-* Development (content available at http://localhost:8080):
+* Development (content available at [http://localhost:8080](http://localhost:8080)):
 
     ```
-    docker-compose up -d
+    make serve
     npm run app:build-dev
     ```
 
-* Production (content available at http://localhost[:80] or https://localhost[:443]):
+* Production (content available at [http://localhost[:80]](http://localhost:80)):
 
     ```
-    docker-compose -f docker-compose.build.yml up --build -d
+    make build
+    make run
     ```
 
 ## Package

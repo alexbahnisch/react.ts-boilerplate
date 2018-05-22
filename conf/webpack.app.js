@@ -21,7 +21,7 @@ let plugins = [
 
 if (process.env.NODE_ENV !== "production") {
   plugins.push(
-    new LiveReloadPlugin({appendScriptTag: true})
+    new LiveReloadPlugin({appendScriptTag: true, delay: 1000})
   );
 }
 
