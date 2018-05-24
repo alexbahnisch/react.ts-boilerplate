@@ -1,31 +1,11 @@
 "use strict";
-const fs = require("fs");
-const path = require("path");
+const {copyFiles, readPackageJson, writePackageJson} = require("./common");
 
-
-function copyFile(sourceDir, destinationDir, file) {
-  try {
-      fs.writeFileSync(relativePath(destinationDir, file), fs.readFileSync(relativePath(sourceDir, file)));
-    console.log(`Copied '${file}' from '${sourceDir}' to '${destinationDir}'`)
-  } catch (error) {
-    console.warn(error.message)
-  }
-}
-
-function copyFiles(sourceDir, destinationDir, ...files) {
-  files.forEach((file) => {
-    copyFile(sourceDir, destinationDir, file)
-  });
-}
-
-function relativePath(relativeDir, file) {
-  return path.resolve(__dirname, relativeDir, file)
-}
 
 function copyPackageJson(sourceDir, destinationDir) {
   try {
     // noinspection JSCheckFunctionSignatures
-    let rootPackageJson = JSON.parse(fs.readFileSync(relativePath(sourceDir, "package.json")));
+    let rootPackageJson = readPackageJson(sourceDir);
 
     let {
       name, version, description, author, license, keywords, homepage, repository, bugs, dependencies, peerDependencies
@@ -35,7 +15,7 @@ function copyPackageJson(sourceDir, destinationDir) {
       name, version, description, author, license, keywords, homepage, repository, bugs, main: "./index.js", dependencies, peerDependencies
     };
 
-    fs.writeFileSync(relativePath(destinationDir, "package.json"), JSON.stringify(subPackageJson, null, " "));
+    writePackageJson(destinationDir, subPackageJson);
     console.log(`Copied 'package.json' from '${sourceDir}' to '${destinationDir}'`)
   } catch (error) {
     console.warn(error.message)
@@ -45,4 +25,4 @@ function copyPackageJson(sourceDir, destinationDir) {
 (function prePackage(sourceDir, destinationDir, ...files) {
   copyFiles(sourceDir, destinationDir, ...files);
   copyPackageJson(sourceDir, destinationDir)
-})("../", "../dist/package/", 'LICENSE', 'README.md');
+})("../", "../dist/package/", "LICENSE", "README.md");
