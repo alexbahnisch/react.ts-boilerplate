@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/alexbahnisch/react.ts-boilerplate/issues"
   },
-  "main": "./src/package/index.ts",
+  "main": "./dist/electron/main.js",
   "private": true,
   "keywords": [
     "boilerplate",
@@ -30,6 +30,7 @@
     "copy-webpack-plugin": "^4.5.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
+    "electron": "^2.0.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "live-server": "^1.2.0",
@@ -49,12 +50,15 @@
     "react-dom": "16"
   },
   "scripts": {
-    "app:build": "npm run app:clean && cross-env CONFIG=app webpack --progress -p",
-    "app:build-dev": "npm run app:clean && cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
-    "app:build-docker": "cross-env CONFIG=app webpack --progress -p",
+    "app:build": "cross-env CONFIG=app webpack --progress -p",
+    "app:build-dev": "cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
     "app:serve": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
     "clean": "npm run app:clean && npm run package:clean",
+    "electron": "npm run electron:build && npm run electron:run",
+    "electron:build": "cross-env CONFIG=electron webpack --progress -p",
+    "electron:clean": "rm !(*.gitkeep) -rf ./dist/electron/*",
+    "electron:run": "electron .",
     "package": "npm run package:compile && npm run package:bundle && npm run package:artifact",
     "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
     "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",

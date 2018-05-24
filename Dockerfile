@@ -12,7 +12,7 @@ COPY webpack.config.js /build/webpack.config.js
 COPY conf /build/conf
 COPY src /build/src
 
-RUN npm run app:build-docker
+RUN npm run app:build
 
 
 FROM nginx:1

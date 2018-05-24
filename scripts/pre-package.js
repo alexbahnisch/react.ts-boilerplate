@@ -24,6 +24,7 @@ function relativePath(relativeDir, file) {
 
 function copyPackageJson(sourceDir, destinationDir) {
   try {
+    // noinspection JSCheckFunctionSignatures
     let rootPackageJson = JSON.parse(fs.readFileSync(relativePath(sourceDir, "package.json")));
 
     let {
