@@ -4,7 +4,7 @@ const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 
-// noinspection JSUnresolvedFunction
+// noinspection JSCheckFunctionSignatures, JSUnresolvedFunction
 let packageJson = JSON.parse(fs.readFileSync("./package.json"));
 let name = `${packageJson.name}-${packageJson.version}${process.env.MIN ? ".min" : ""}`;
 let plugins = [new ExtractTextPlugin(`${name}.css`)];

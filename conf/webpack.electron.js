@@ -6,22 +6,21 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
-let externals = {};
+const externals = {};
+const mode = process.env.NODE_ENV === "production" ? "production" : "development";
+const outputPath = path.resolve(__dirname, "../dist/electron/");
+
 fs.readdirSync(path.resolve(__dirname, "../node_modules"))
   .filter((module) => ([".bin"].indexOf(module) === -1))
   .forEach((module) => {externals[module] = "commonjs " + module});
 
 
-module.exports = {
-  mode: process.env.NODE_ENV !== "production" ? "production" : "development",
-  target: "node",
-  entry: {
-    bundle: path.resolve(__dirname, "../src/app/main.tsx"),
-    main: path.resolve(__dirname, "../src/electron/main.ts")
-  },
+const app = {
+  mode,
+  entry: path.resolve(__dirname, "../src/app/main.tsx"),
   output: {
-    path: path.resolve(__dirname, "../dist/electron/"),
-    filename: "[name].js"
+    path: outputPath,
+    filename: "bundle.js"
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
@@ -38,10 +37,6 @@ module.exports = {
       }
     ]
   },
-  node: {
-    __dirname: false,
-  },
-  externals: externals,
   plugins: [
     new CopyWebpackPlugin([
       {from: "./src/assets/css", to: "css"},
@@ -51,8 +46,36 @@ module.exports = {
     ]),
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      excludeChunks: ["main"],
       template: "./src/assets/index.html"
     })
   ]
 };
+
+
+const electron = {
+  mode,
+  target: "node",
+  entry: path.resolve(__dirname, "../src/electron/main.ts"),
+  output: {
+    path: outputPath,
+    filename: "main.js"
+  },
+  resolve: {
+    extensions: [".ts"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        loader: "awesome-typescript-loader"
+      }
+    ]
+  },
+  node: {
+    __dirname: false,
+  },
+  externals,
+};
+
+
+module.exports = [app, electron];
