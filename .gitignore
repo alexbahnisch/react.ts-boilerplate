@@ -1,6 +1,7 @@
 # Root:
 .idea
-dist
+#build
+#dist
 node_modules
 
 # Wildcards:

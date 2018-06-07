@@ -20,7 +20,7 @@ function copyFiles(sourceDir, destinationDir, ...files) {
 }
 
 
-function readPackageJson(dir) {
+function readPackageJson(dir = ".") {
   // noinspection JSCheckFunctionSignatures
   return JSON.parse(fs.readFileSync(relativePath(dir, "package.json")));
 }

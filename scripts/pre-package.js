@@ -25,4 +25,4 @@ function copyPackageJson(sourceDir, destinationDir) {
 (function prePackage(sourceDir, destinationDir, ...files) {
   copyFiles(sourceDir, destinationDir, ...files);
   copyPackageJson(sourceDir, destinationDir)
-})("../", "../dist/package/", "LICENSE", "README.md");
+})("../", "../build/package/", "LICENSE", "README.md");

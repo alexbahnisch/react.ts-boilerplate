@@ -17,7 +17,7 @@ module.exports = {
   mode: process.env.MIN ? "production" : "development",
   entry: path.resolve(__dirname, "../src/package/index.ts"),
   output: {
-    path: path.resolve(__dirname, "../dist/package/"),
+    path: path.resolve(__dirname, "../build/package/"),
     filename: `zzz.js`
   },
   devtool: process.env.MIN ? "source-map" : undefined,

@@ -7,7 +7,7 @@
     "module": "commonjs",
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "outDir": "./dist/package/",
+    "outDir": "./build/package/",
     "pretty": true,
     "sourceMap": false,
     "suppressImplicitAnyIndexErrors": false,

@@ -20,4 +20,4 @@ const {readPackageJson, writePackageJson} = require("./common");
   } catch (error) {
     console.warn(error.message)
   }
-})("../", "../dist/electron/", "LICENSE");
+})("../", "../build/electron/", "LICENSE");

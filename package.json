@@ -1,5 +1,5 @@
 {
-  "name": "react.ts-boilerplate",
+  "name": "boilerplate",
   "version": "0.0.1",
   "description": "A boilerplate for creating typescript/react based npm packages, webpack webapps and electron apps.",
   "license": "MIT",
@@ -12,7 +12,7 @@
   "bugs": {
     "url": "https://github.com/alexbahnisch/react.ts-boilerplate/issues"
   },
-  "main": "./dist/electron/main.js",
+  "main": "./build/app/main.js",
   "private": true,
   "keywords": [
     "boilerplate",
@@ -57,17 +57,16 @@
     "app:build-dev": "cross-env CONFIG=app NODE_ENV=development webpack --devtool inline-source-map --progress --watch",
     "app:clean": "rm !(*.gitkeep) -rf ./dist/app/*",
     "app:serve": "cross-env CONFIG=app webpack-dev-server --devtool inline-source-map --progress",
-    "clean": "npm run app:clean && npm run package:clean",
-    "electron": "npm run electron:build && npm run electron:run",
+    "clean": "npm run app:clean && npm run electron:clean && npm run package:clean",
+    "electron": "npm run electron:clean && npm run electron:build && npm run electron:package",
     "electron:build": "cross-env CONFIG=electron webpack --progress -p  && node ./scripts/pre-electron.js",
-    "electron:clean": "rm !(*.gitkeep) -rf ./dist/electron/*",
-    "electron:package": "npm run electron:build && electron-packager ./dist/electron boilerplate --out ./dist/bin",
-    "electron:run": "electron ./dist/electron",
+    "electron:clean": "rm !(*.gitkeep) -rf ./build/electron/* && rm !(*.gitkeep) -rf ./dist/electron/*",
+    "electron:package": "electron-packager ./build/electron --asar --icon ./src/resources/icon.ico --out ./dist/electron --overwrite",
     "package": "npm run package:compile && npm run package:bundle -p && npm run package:artifact",
-    "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../package",
-    "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./dist/package/zzz.*",
-    "package:clean": "rm !(*.gitkeep) -rf ./dist/package/*",
+    "package:artifact": "node ./scripts/pre-package.js && cd ./dist/artifacts/ && npm pack ../../build/package",
+    "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./build/package/zzz.*",
+    "package:clean": "rm !(*.gitkeep) -rf ./build/package/*",
     "package:compile": "npm run package:clean && tsc -d",
-    "server": "live-server ./dist/app/ --port 8081"
+    "server": "live-server ./dist/app/ --port=8081"
   }
 }

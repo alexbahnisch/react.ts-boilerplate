@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const externals = {};
 const mode = process.env.NODE_ENV === "production" ? "production" : "development";
-const outputPath = path.resolve(__dirname, "../dist/electron/");
+const outputPath = path.resolve(__dirname, "../build/electron/");
 
 fs.readdirSync(path.resolve(__dirname, "../node_modules"))
   .filter((module) => ([".bin"].indexOf(module) === -1))
