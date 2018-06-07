@@ -32,10 +32,6 @@ module.exports = {
     path: path.resolve(__dirname, "../dist/app/"),
     filename: "bundle.js"
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, "../dist/app/"),
-    port: 8082
-  },
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
   },

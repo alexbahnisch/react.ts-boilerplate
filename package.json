@@ -42,7 +42,6 @@
     "typescript": "^2.8.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4",
-    "webpack-dev-server": "^3.1.4",
     "webpack-livereload-plugin": "^2.1.1"
   },
   "peerDependencies": {
@@ -67,6 +66,6 @@
     "package:bundle": "cross-env CONFIG=package MIN=true webpack -p && cross-env CONFIG=package webpack && rm ./build/package/zzz.*",
     "package:clean": "rm !(*.gitkeep) -rf ./build/package/*",
     "package:compile": "npm run package:clean && tsc -d",
-    "server": "live-server ./dist/app/ --port=8081"
+    "server": "live-server ./dist/app/ --entry-file=index.html --port=8081"
   }
 }
