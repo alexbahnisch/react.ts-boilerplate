@@ -1,9 +1,9 @@
 "use strict";
 import * as React from "react"
 import {Children, PureComponent} from "react"
+import * as _ from "lodash"
 
-import {pureAssign} from "../utils"
-import "./styles.css"
+const {wrapper} = require("./wrapper.css");
 
 
 export interface WrapperProps {
@@ -16,11 +16,13 @@ export interface WrapperProps {
 export class Wrapper extends PureComponent<WrapperProps, undefined> {
 
   concatClassNames(...classNames: string[]) : string {
-    return [this.props.className, ...classNames].filter((className) => (className !== undefined)).join(" ") || undefined
+    return _.join(_.filter([this.props.className, ...classNames], (className: string) => (
+      className !== undefined)
+    ), " ") || undefined;
   }
 
   mergeStyles(...styles: object[]) {
-    return pureAssign(this.props.style, ...styles);
+    return _.assign({}, this.props.style, ...styles);
   }
 
   render() {
@@ -28,7 +30,7 @@ export class Wrapper extends PureComponent<WrapperProps, undefined> {
 
     return React.cloneElement(Children.only(this.props.children),
       {
-        className: this.concatClassNames(className),
+        className: this.concatClassNames(className, wrapper),
         style: this.mergeStyles(style),
         ...other
       }

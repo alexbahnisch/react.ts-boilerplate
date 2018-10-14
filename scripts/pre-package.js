@@ -8,11 +8,11 @@ function copyPackageJson(sourceDir, destinationDir) {
     let rootPackageJson = readPackageJson(sourceDir);
 
     let {
-      name, version, description, author, license, keywords, homepage, repository, bugs, dependencies, peerDependencies
+      name, version, description, author, license, keywords, homepage, repository, bugs, bin, dependencies, peerDependencies
     } = rootPackageJson;
 
     let subPackageJson = {
-      name, version, description, author, license, keywords, homepage, repository, bugs, main: "./index.js", dependencies, peerDependencies
+      name, version, description, author, license, keywords, homepage, repository, bugs, main: "./index.js", bin, dependencies, peerDependencies
     };
 
     writePackageJson(destinationDir, subPackageJson);
