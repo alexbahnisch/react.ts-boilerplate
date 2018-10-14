@@ -22,7 +22,7 @@ npm install
 To build and deploy a local development build with source-maps and live reloading (content available at [http://localhost:8081](http://localhost:8081)), run:
 
 ```
-npm run app:build-dev
+npm run app:watch
 ```
 
 and in a separate terminal run
@@ -37,7 +37,7 @@ To build and deploy a docker development build with source-maps and live reloadi
 
 ```
 make serve
-npm run app:build-dev
+npm run app:watch
 ```
 
 
