@@ -15,8 +15,8 @@ interface State {
 type SnapShot = any
 
 
-export class ComponentBoilerplate extends Component<Props, State> {
-  static displayName = "ComponentBoilerplate";
+export class BoilerplateComponent extends Component<Props, State> {
+  static displayName = "BoilerplateComponent";
   static defaultProps = {};
 
   _element: Element;
@@ -26,7 +26,7 @@ export class ComponentBoilerplate extends Component<Props, State> {
    */
   constructor(props: Props) {
     super(props);
-    console.log(`${ComponentBoilerplate.displayName}.constructor(props)`)
+    console.log(`${BoilerplateComponent.displayName}.constructor(props)`)
   }
 
   /**
@@ -35,7 +35,7 @@ export class ComponentBoilerplate extends Component<Props, State> {
    * Called first when updating.
    */
   static getDerivedStateFromProps(props: Props, state: State): object | null {
-    console.log(`${ComponentBoilerplate.displayName}.getDerivedStateFromProps(props, state)`);
+    console.log(`${BoilerplateComponent.displayName}.getDerivedStateFromProps(props, state)`);
     return null;
   }
 
@@ -43,7 +43,7 @@ export class ComponentBoilerplate extends Component<Props, State> {
    * Called forth/last when mounting.
    */
   componentDidMount(): void {
-    console.log(`${ComponentBoilerplate.displayName}.componentDidMount()`)
+    console.log(`${BoilerplateComponent.displayName}.componentDidMount()`)
   }
 
   /**
@@ -51,7 +51,7 @@ export class ComponentBoilerplate extends Component<Props, State> {
    * Return value dictates if further updating lifecycle hooks are called.
    */
   shouldComponentUpdate(nextProps: Props, nextState: State): boolean {
-    console.log(`${ComponentBoilerplate.displayName}.shouldComponentUpdate(nextProps, nextState)`);
+    console.log(`${BoilerplateComponent.displayName}.shouldComponentUpdate(nextProps, nextState)`);
     return true;
   }
 
@@ -59,7 +59,7 @@ export class ComponentBoilerplate extends Component<Props, State> {
    * Called forth when updating.
    */
   getSnapshotBeforeUpdate(prevProps: Props, prevState: State): SnapShot {
-    console.log(`${ComponentBoilerplate.displayName}.getSnapshotBeforeUpdate(nextProps, nextState)`);
+    console.log(`${BoilerplateComponent.displayName}.getSnapshotBeforeUpdate(nextProps, nextState)`);
     return {}
   }
 
@@ -67,21 +67,21 @@ export class ComponentBoilerplate extends Component<Props, State> {
    * Called fifth/last when updating.
    */
   componentDidUpdate(prevProps: Props, prevState: State, snapshot: SnapShot): void {
-    console.log(`${ComponentBoilerplate.displayName}.componentDidUpdate(nextProps, nextState, snapShot)`);
+    console.log(`${BoilerplateComponent.displayName}.componentDidUpdate(nextProps, nextState, snapShot)`);
   }
 
   /**
    * Called when un-mounting.
    */
   componentWillUnmount(): void {
-    console.log(`${ComponentBoilerplate.displayName}.componentWillUnmount(nextProps, nextState, snapShot)`);
+    console.log(`${BoilerplateComponent.displayName}.componentWillUnmount(nextProps, nextState, snapShot)`);
   }
 
   /**
    * Called when there is an error during rendering, in a lifecycle hook, or in the constructor of any child component.
    */
   componentDidCatch(error: Error, info: ErrorInfo): void {
-    console.log(`${ComponentBoilerplate.displayName}.componentDidCatch(error, info)`);
+    console.log(`${BoilerplateComponent.displayName}.componentDidCatch(error, info)`);
   }
 
   /**
